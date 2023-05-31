@@ -1,1 +1,1 @@
-# Statify_stat101
+# Statify (for STAT 101)
