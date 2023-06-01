@@ -106,8 +106,8 @@ class Statify:
     def boxPlot(self,title='Box-Whisker Plot',label_x = 'Values',label_y ='Groups'):
         self.__plotting_methods.boxPlot(self.__column_dict, title ,label_x,label_y)
     
-    def histogram(self,label_y = 'Frequency', bins = False, bin_value = 0):
-        self.__plotting_methods.histogram(self.__column_dict, label_y = 'Frequency', bins = False, bin_value = 0)
+    def histogram(self,label_y = 'Frequency', bins = 0):
+        self.__plotting_methods.histogram(self.__column_dict, label_y = 'Frequency', bins = 0)
      
     def scatterPlot(self, order = None, label_x=None, label_y=None, regression = False):
         if order is None: order = self.__column_list
