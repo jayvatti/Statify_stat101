@@ -10,8 +10,12 @@ from StatifyPy.ErrorStat import TempError, StatsError
 from StatifyPy.statify_plots import Plots
 from StatifyPy.calculations import Calculations
 
+from StatifyPy.statify_decorators import Decorators
+
 
 class Statify:
+
+    @Decorators.gen_decorator("Initialising...","Instance Created!")
     def __init__(self, file_name, column_list):
         self.file_name = file_name
         self.__column_list = column_list
@@ -41,6 +45,7 @@ class Statify:
             print(f"{space_file_name} does not EXIST!")
             print(f"Exception: {e}", end="\n\n")
 
+    @Decorators.gen_decorator("Reading CSV file...","Reading Completed!")
     def __read_csv(self):
         try:
             csv_file = pd.read_csv(self.file_name)
@@ -102,6 +107,11 @@ class Statify:
 
     # wrapper that accepts a param(plot_name)
     def _plot_name_decorator(plot_name):
+        """
+
+        :rtype: function
+        """
+
         def decorator(plot_func):
             def wrapper(*args, **kwargs):
                 print(f"Plotting {plot_name}...")
@@ -113,18 +123,22 @@ class Statify:
 
         return decorator
 
+    # noinspection PyArgumentList
     @_plot_name_decorator("Dot Plot")
     def dotPlot(self, label_y="Frequency"):
         self.__plotting_methods.dotPlot(self.pdata, label_y)
 
+    # noinspection PyArgumentList
     @_plot_name_decorator("Box-Whisker Plot")
     def boxPlot(self, title='Box-Whisker Plot', label_x='Values', label_y='Groups'):
         self.__plotting_methods.boxPlot(self.__column_dict, title, label_x, label_y)
 
+    # noinspection PyArgumentList
     @_plot_name_decorator("Histogram")
     def histogram(self, label_y='Frequency', bins=0):
         self.__plotting_methods.histogram(self.__column_dict, label_y='Frequency', bins=0)
 
+    # noinspection PyArgumentList
     @_plot_name_decorator("Scatter Plot")
     def scatterPlot(self, order=None, label_x=None, label_y=None, regression=False):
         if order is None: order = self.__column_list
