@@ -1,3 +1,4 @@
+import inspect
 
 
 class Decorators:
@@ -11,17 +12,38 @@ class Decorators:
                 return result
 
             return wrapper
+
         return decorator
 
     @staticmethod
     def gen_decorator(before, after):
         def decorator(func):
             def wrapper(*args, **kwargs):
-                print(f"{before}...")
+                print(f"{before}")
                 result = func(*args, **kwargs)
                 print(f"{after}!", end='\n\n')
                 return result
+
             return wrapper
+
         return decorator
 
+    @staticmethod
+    def arg_kwarg_decorator(before, after):
+        def decorator(func):
+            def wrapper(*args, **kwargs):
+                print(f"{before}")
+                sig = inspect.signature(func)
+                param_names = list(sig.parameters.keys())
+                print("Parameter names:", param_names)
+                if kwargs:  # If kwargs is not empty, print it
+                    print(kwargs)
+                else:  # If kwargs is empty, print args
+                    print(args)
+                result = func(*args, **kwargs)
+                print(f"{after}!", end='\n\n')
+                return result
 
+            return wrapper
+
+        return decorator
