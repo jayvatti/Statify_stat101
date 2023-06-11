@@ -1,2 +1,5 @@
 # Statify (for STAT 101)
 A repo for basic stats 
+
+IN PROGRESS 
+(PLEASE NOTE: THIS DOES NOT REFLECT FINAL MODIFICATIONS)
