@@ -1,6 +1,7 @@
 # Statify (for STAT 101)
 
-** WORK IN PROGRESS** 
+span style="font-family:Papyrus; font-size: 28px;">&#x1F4D7;</span> **WORK IN PROGRESS**
+
 ## `Introduction`
 
 Welcome to Statify, a personal project aimed at providing a comprehensive set of statistical functions and tools for Stat 101. This repository is currently a work in progress, and I plan to develop it further into a pip module in the future. Here, you will find a collection of functions that I have learned in my Statistics class and found useful. 
