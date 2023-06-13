@@ -1,6 +1,6 @@
 # Statify (for STAT 101)
 
-span style="font-family:Papyrus; font-size: 28px;">&#x1F4D7;</span> **WORK IN PROGRESS**
+<span style="font-family:Papyrus; font-size: 28px;">&#x1F4D7;</span> **WORK IN PROGRESS**
 
 ## `Introduction`
 
