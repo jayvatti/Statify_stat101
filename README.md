@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to Statify, a personal project aimed at providing a comprehensive set of statistical functions and tools for Stat 101. This repository is currently a work in progress, and I plan to develop it further into a pip module in the future. Here, you will find a collection of functions that I have learned in my Statistics class and found useful. So, let's dive in and explore the world of statistics!
+Welcome to Statify, a personal project aimed at providing a comprehensive set of statistical functions and tools for Stat 101. This repository is currently a work in progress, and I plan to develop it further into a pip module in the future. Here, you will find a collection of functions that I have learned in my Statistics class and found useful. 
 
 ## Functions
 
@@ -58,8 +58,3 @@ In addition to the current functions, I have exciting plans for future expansion
 5. **Expected Value and Variance**: Include functions to calculate the expected value (E(x)) and variance (V(x)) for various probability distributions.
 6. **Sampling**: Introduce functions for sampling from different distributions to facilitate simulation and inference.
 
-Stay tuned for updates as I continue to enhance and expand Statify!
-
-## Conclusion
-
-Statify is an ongoing personal project that aims to provide a comprehensive collection of statistical functions and tools for Stat 101. With an array of probability distribution calculations, regression analysis, descriptive statistics, data visualization, and ANOVA support, Statify is designed to assist you in your statistical journey. Keep an eye out for future additions, and enjoy exploring the exciting world of statistics with Statify!
