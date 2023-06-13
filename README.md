@@ -41,6 +41,7 @@ Welcome to Statify, a personal project aimed at providing a comprehensive set of
 
 - **Histogram**: Generate a histogram to visualize the distribution of a dataset.
 - **Scatter Plot**: Create a scatter plot to explore the relationship between two variables.
+- **Dot Plot**: Generate a dot plot to visualize the distribution of a dataset.
 - **Box-Whisker Plot**: Generate a box-whisker plot to visualize the distribution of a dataset.
 
 ### Analysis of Variance (ANOVA)
