@@ -11,6 +11,8 @@ def main():
     """
 
     test = Statify('Data.csv', ['x', 'y'])
+    print(Statify.normalpdf(0.9)) # Normal PDF for 0.9 (Mean = 0, std_dev = 1) 
+
 
     '''
     test = Statify('Data.csv', ['x', 'y'])
