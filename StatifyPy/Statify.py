@@ -15,7 +15,7 @@ from StatifyPy.statify_decorators import Decorators
 
 class Statify:
 
-    @Decorators.gen_decorator("Initialising...","Instance Created!")
+    @Decorators.gen_decorator("Initialising...", "Instance Created!")
     def __init__(self, file_name, column_list):
         self.file_name = file_name
         self.__column_list = column_list
@@ -23,7 +23,6 @@ class Statify:
         self.__column_dict = {}
         self.modify(column_list)
         self.__plotting_methods = Plots()
-        self.__calculations = Calculations()
 
     @property
     def returnPD(self):
@@ -38,14 +37,14 @@ class Statify:
     @classmethod
     def space_delimiter(self, space_file_name, csv_file_name):
         try:
-            with open(self.space_file_name) as infile:
+            with open(space_file_name) as infile:
                 data = infile.read().replace(' ', ',')
                 print(data, file=open(csv_file_name, 'w'))
         except Exception as e:
             print(f"{space_file_name} does not EXIST!")
             print(f"Exception: {e}", end="\n\n")
 
-    @Decorators.gen_decorator("Reading CSV file...","Reading Completed!")
+    @Decorators.gen_decorator("Reading CSV file...", "Reading Completed!")
     def __read_csv(self):
         try:
             csv_file = pd.read_csv(self.file_name)
@@ -88,9 +87,8 @@ class Statify:
                 plt.title('Linear Regression')
                 plt.show()
 
-
         except StatsError as e:
-            print('ERROR:', e.error, e.args[-1], e.temp, sep=': ')
+            print('ERROR:', e.error, e.args[-1], sep=': ')
 
     # column rows generator
     def column_keys_gen(self):
@@ -171,6 +169,39 @@ class Statify:
                 print(x.describe(), end='\n---------------------\n\n')
         except Exception as e:
             print(e.args)
+
+    @staticmethod
+    def normalpdf(x, mean=0, std_dev=1):
+        return Calculations.normal_pdf(x, mean, std_dev)
+
+    #testing needed
+    @staticmethod
+    def normalcdf(x, mean=0, std_dev=1):
+        return Calculations.normal_cdf(x, mean, std_dev)
+
+    @staticmethod
+    def binompdf(success, trails, p):
+        return Calculations.binomial_pmf(success, trails, p)
+
+    @staticmethod
+    def binomcdf(success, trails, p):
+        return Calculations.binomial_cdf(success, trails, p)
+
+    @staticmethod
+    def tpdf(x,df):
+        return Calculations.t_pdf(x, df)
+
+    @staticmethod
+    def tcdf(lower, upper, df):
+        return Calculations.t_cdf(lower,upper,df)
+
+    @staticmethod
+    def invNorm(p, mean=0, std_dev=1, test="LEFT"):
+        return Calculations.inv_norm(p, mean,std_dev, test)
+
+    @staticmethod
+    def invT(p, df, test="DEFAULT"):
+        return Calculations.inv_t(p,df,test)
 
 
 if __name__ == "__main__":
