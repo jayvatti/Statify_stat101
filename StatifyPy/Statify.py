@@ -55,6 +55,7 @@ class Statify:
             print(f"Exception: {e}", end="\n\n")
             return [{"INVALID": [0, 0]}, pd.DataFrame()]
 
+    @Decorators.gen_decorator("Modifying Columns...","Columns Modified!")
     def modify(self, columns):
         self.__column_list = columns
         temp = self.__dict.copy()
@@ -122,22 +123,22 @@ class Statify:
         return decorator
 
     # noinspection PyArgumentList
-    @_plot_name_decorator("Dot Plot")
+    @Decorators.plot_name_decorator("Dot Plot")
     def dotPlot(self, label_y="Frequency"):
         self.__plotting_methods.dotPlot(self.pdata, label_y)
 
     # noinspection PyArgumentList
-    @_plot_name_decorator("Box-Whisker Plot")
+    @Decorators.plot_name_decorator("Box-Whisker Plot")
     def boxPlot(self, title='Box-Whisker Plot', label_x='Values', label_y='Groups'):
         self.__plotting_methods.boxPlot(self.__column_dict, title, label_x, label_y)
 
     # noinspection PyArgumentList
-    @_plot_name_decorator("Histogram")
+    @Decorators.plot_name_decorator("Histogram")
     def histogram(self, label_y='Frequency', bins=0):
         self.__plotting_methods.histogram(self.__column_dict, label_y='Frequency', bins=0)
 
     # noinspection PyArgumentList
-    @_plot_name_decorator("Scatter Plot")
+    @Decorators.plot_name_decorator("Scatter Plot")
     def scatterPlot(self, order=None, label_x=None, label_y=None, regression=False):
         if order is None: order = self.__column_list
         if label_x is None: label_x = self.__column_list[0]
@@ -171,37 +172,50 @@ class Statify:
             print(e.args)
 
     @staticmethod
+    @Decorators.gen_decorator("NormalPDF:\n", "\n\n")
     def normalpdf(x, mean=0, std_dev=1):
         return Calculations.normal_pdf(x, mean, std_dev)
 
     #testing needed
     @staticmethod
+    @Decorators.gen_decorator("NormalCDF:\n","\n\n")
     def normalcdf(x, mean=0, std_dev=1):
         return Calculations.normal_cdf(x, mean, std_dev)
 
     @staticmethod
+    @Decorators.gen_decorator("BinomPDF:\n", "\n\n")
     def binompdf(success, trails, p):
         return Calculations.binomial_pmf(success, trails, p)
 
     @staticmethod
+    @Decorators.gen_decorator("BinomCDF:\n", "\n\n")
     def binomcdf(success, trails, p):
         return Calculations.binomial_cdf(success, trails, p)
 
     @staticmethod
+    @Decorators.gen_decorator("tPDF:\n", "\n\n")
     def tpdf(x,df):
         return Calculations.t_pdf(x, df)
 
     @staticmethod
+    @Decorators.gen_decorator("tCDF:\n", "\n\n")
     def tcdf(lower, upper, df):
         return Calculations.t_cdf(lower,upper,df)
 
     @staticmethod
+    @Decorators.gen_decorator("invNorm:\n", "\n\n")
     def invNorm(p, mean=0, std_dev=1, test="LEFT"):
         return Calculations.inv_norm(p, mean,std_dev, test)
 
     @staticmethod
+    @Decorators.gen_decorator("invT:\n", "\n\n")
     def invT(p, df, test="DEFAULT"):
         return Calculations.inv_t(p,df,test)
+
+    @staticmethod
+    @Decorators.gen_decorator("anova:\n","\n\n")
+    def anova(data, dependent_variable, factor_variable):
+        return Calculations.anova(data,dependent_variable,factor_variable)
 
 
 if __name__ == "__main__":
