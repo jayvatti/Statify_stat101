@@ -104,24 +104,6 @@ class Statify:
         else:
             print(f"Column '{column_key}' not found.")
 
-    # wrapper that accepts a param(plot_name)
-    def _plot_name_decorator(plot_name):
-        """
-
-        :rtype: function
-        """
-
-        def decorator(plot_func):
-            def wrapper(*args, **kwargs):
-                print(f"Plotting {plot_name}...")
-                result = plot_func(*args, **kwargs)
-                print(f"{plot_name} plotted!", end='\n\n\n')
-                return result
-
-            return wrapper
-
-        return decorator
-
     # noinspection PyArgumentList
     @Decorators.plot_name_decorator("Dot Plot")
     def dotPlot(self, label_y="Frequency"):
