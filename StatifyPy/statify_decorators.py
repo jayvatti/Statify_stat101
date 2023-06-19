@@ -2,6 +2,8 @@ import inspect
 
 
 class Decorators:
+
+    # wrapper that accepts a param(plot_name)
     @staticmethod
     def plot_name_decorator(plot_name):
         def decorator(plot_func):
@@ -15,6 +17,7 @@ class Decorators:
 
         return decorator
 
+    # wrapper that accepts a param(before,after)
     @staticmethod
     def gen_decorator(before, after):
         def decorator(func):
@@ -29,6 +32,8 @@ class Decorators:
         return decorator
 
     @staticmethod
+    # wrapper that accepts a param(before,after): HELP REPLICATOR
+    # IN PROGRESS 
     def arg_kwarg_decorator(before, after):
         def decorator(func):
             def wrapper(*args, **kwargs):
